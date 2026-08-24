@@ -1,34 +1,62 @@
-const services = [
+const vehicles = [
   {
-    title: "Signature Service",
-    text: "Professional service tailored to each customer's needs.",
+    name: "2024 Toyota Land Cruiser",
+    price: "GH₵ 1,250,000",
+    details: "Automatic • Petrol • 12,000 km",
+    tag: "Featured",
   },
   {
-    title: "Premium Package",
-    text: "A complete experience designed for customers who want more.",
+    name: "2023 Mercedes-Benz C300",
+    price: "GH₵ 850,000",
+    details: "Automatic • Petrol • 18,500 km",
+    tag: "Premium",
   },
   {
-    title: "Express Service",
-    text: "Quality service for customers who need something quick and convenient.",
-  },
-  {
-    title: "Special Packages",
-    text: "Flexible packages for events, businesses and special occasions.",
+    name: "2022 Toyota Camry",
+    price: "GH₵ 420,000",
+    details: "Automatic • Petrol • 32,000 km",
+    tag: "Popular",
   },
 ];
 
-const testimonials = [
+const services = [
   {
-    quote: "Excellent service from start to finish. I would definitely recommend them.",
-    name: "Ama K.",
+    number: "01",
+    title: "Vehicle Sales",
+    text: "Browse quality new and pre-owned vehicles selected for Ghanaian drivers.",
   },
   {
-    quote: "Professional, friendly and very easy to work with.",
-    name: "Nana E.",
+    number: "02",
+    title: "Vehicle Sourcing",
+    text: "Tell us what you are looking for and we can help source the right vehicle.",
   },
   {
-    quote: "The whole experience was smooth and the result was excellent.",
-    name: "Esi M.",
+    number: "03",
+    title: "Trade-In",
+    text: "Looking to upgrade? Speak with our team about trading in your current vehicle.",
+  },
+  {
+    number: "04",
+    title: "After-Sales Support",
+    text: "Our relationship doesn't end when you drive away. We're here to support you.",
+  },
+];
+
+const reviews = [
+  {
+    quote:
+      "The process was smooth and professional. I found exactly the vehicle I wanted.",
+    name: "Michael K.",
+  },
+  {
+    quote:
+      "Excellent communication from the first enquiry until I received the car.",
+    name: "Daniel A.",
+  },
+  {
+    quote:
+      "Very helpful team and a great selection of vehicles.",
+    name: "Kwame B.",
   },
 ];
 
@@ -39,70 +67,93 @@ export default function Home() {
     <main>
       <header className="nav">
         <a className="logo" href="#home">
-          Luxe<span>Glow</span>
+          DRIVE<span>GH</span>
         </a>
 
         <nav>
-          <a href="#about">About</a>
+          <a href="#vehicles">Vehicles</a>
           <a href="#services">Services</a>
-          <a href="#gallery">Gallery</a>
+          <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
 
         <a className="navCta" href={whatsapp}>
-          Book Now
+          WhatsApp Us
         </a>
       </header>
 
-      <section id="home" className="hero">
-        <div className="heroCopy">
-          <p className="eyebrow">PROFESSIONAL • TRUSTED • RELIABLE</p>
+      <section id="home" className="carHero">
+        <div className="heroOverlay">
+          <div className="heroCopy">
+            <p className="eyebrow">PREMIUM VEHICLES • TRUSTED SERVICE</p>
 
-          <h1>
-            Your business.
-            <br />
-            <em>Made memorable.</em>
-          </h1>
+            <h1>
+              Find the car
+              <br />
+              <em>that fits you.</em>
+            </h1>
 
-          <p className="heroText">
-            Professional services designed around quality, convenience and
-            customer satisfaction.
-          </p>
+            <p className="heroText">
+              Quality vehicles, transparent service and a team ready to help
+              you find your next car.
+            </p>
 
-          <div className="actions">
-            <a className="button primary" href="#contact">
-              Get Started
-            </a>
+            <div className="actions">
+              <a className="button primary" href="#vehicles">
+                View Vehicles
+              </a>
 
-            <a className="button ghost" href={whatsapp}>
-              Chat on WhatsApp
-            </a>
+              <a className="button lightButton" href={whatsapp}>
+                Chat on WhatsApp
+              </a>
+            </div>
           </div>
-        </div>
-
-        <div className="heroImage">
-          <div className="imageLabel">YOUR BUSINESS IMAGE</div>
         </div>
       </section>
 
-      <section id="about" className="split section">
-        <div>
-          <p className="eyebrow">ABOUT US</p>
+      <section id="vehicles" className="section">
+        <div className="sectionHead">
+          <div>
+            <p className="eyebrow">OUR VEHICLES</p>
 
-          <h2>
-            Quality service with a personal touch.
-          </h2>
+            <h2>Featured cars.</h2>
+          </div>
+
+          <p>
+            Browse a selection of vehicles available from our dealership.
+          </p>
         </div>
 
-        <div>
-          <p>
-            We are committed to providing reliable, professional and
-            customer-focused services. Every customer deserves an experience
-            that is simple, convenient and worth coming back for.
-          </p>
+        <div className="vehicleGrid">
+          {vehicles.map((vehicle) => (
+            <article className="vehicleCard" key={vehicle.name}>
+              <div className="vehicleImage">
+                <span>{vehicle.tag}</span>
+                <div>VEHICLE PHOTO</div>
+              </div>
 
-          <a className="textLink" href="#contact">
-            Learn more →
+              <div className="vehicleInfo">
+                <h3>{vehicle.name}</h3>
+
+                <p className="vehicleDetails">
+                  {vehicle.details}
+                </p>
+
+                <div className="vehicleBottom">
+                  <strong>{vehicle.price}</strong>
+
+                  <a href={whatsapp}>
+                    Enquire →
+                  </a>
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+
+        <div className="centerAction">
+          <a className="button ghost" href={whatsapp}>
+            Ask About Available Vehicles
           </a>
         </div>
       </section>
@@ -112,129 +163,138 @@ export default function Home() {
           <div>
             <p className="eyebrow">OUR SERVICES</p>
 
-            <h2>
-              What we can do for you.
-            </h2>
+            <h2>More than just selling cars.</h2>
           </div>
 
           <p>
-            Replace these services with the actual products or services
-            offered by the client.
+            From sourcing your next vehicle to helping you upgrade, we're here
+            throughout the journey.
           </p>
         </div>
 
         <div className="cards">
-          {services.map((service, index) => (
-            <article className="card" key={service.title}>
-              <span className="number">
-                0{index + 1}
-              </span>
+          {services.map((service) => (
+            <article className="card" key={service.number}>
+              <span className="number">{service.number}</span>
 
               <h3>{service.title}</h3>
 
               <p>{service.text}</p>
 
-              <a href="#contact">
-                Enquire →
-              </a>
+              <a href={whatsapp}>Learn more →</a>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="section reasons">
-        <div className="reasonMain">
-          <p className="eyebrow">WHY CHOOSE US</p>
+      <section id="about" className="section split">
+        <div>
+          <p className="eyebrow">ABOUT DRIVEGH</p>
 
           <h2>
-            Professional service you can trust.
+            Your next car should feel like the right choice.
+          </h2>
+        </div>
+
+        <div>
+          <p>
+            We help individuals and families find quality vehicles that match
+            their needs and budget. Our focus is simple: good vehicles,
+            straightforward communication and excellent customer service.
+          </p>
+
+          <p>
+            Whether you're buying your first car, upgrading or looking for a
+            specific model, our team is ready to help.
+          </p>
+
+          <a className="textLink" href="#contact">
+            Speak with our team →
+          </a>
+        </div>
+      </section>
+
+      <section className="section darkSection">
+        <div className="darkIntro">
+          <p className="eyebrow">WHY BUY FROM US</p>
+
+          <h2>
+            A better way to buy your next vehicle.
           </h2>
         </div>
 
         <div className="reasonGrid">
           <div>
             <b>01</b>
-            <h3>Professional Team</h3>
+            <h3>Quality Selection</h3>
             <p>
-              Friendly professionals focused on delivering quality results.
+              We focus on vehicles that offer quality, value and reliability.
             </p>
           </div>
 
           <div>
             <b>02</b>
-            <h3>Quality Service</h3>
+            <h3>Transparent Service</h3>
             <p>
-              We pay attention to the details that matter to our customers.
+              Clear communication throughout the buying process.
             </p>
           </div>
 
           <div>
             <b>03</b>
-            <h3>Easy Communication</h3>
+            <h3>Easy Enquiries</h3>
             <p>
-              Contact us easily by phone, WhatsApp or through our website.
+              Contact us directly through WhatsApp or phone.
             </p>
           </div>
 
           <div>
             <b>04</b>
-            <h3>Customer Focused</h3>
+            <h3>Customer First</h3>
             <p>
-              We listen to our customers and build our service around them.
+              We want you to leave confident about your decision.
             </p>
           </div>
         </div>
       </section>
 
-      <section id="gallery" className="section soft">
+      <section className="section">
         <div className="sectionHead">
           <div>
-            <p className="eyebrow">OUR GALLERY</p>
+            <p className="eyebrow">DEALERSHIP GALLERY</p>
 
-            <h2>
-              See our work.
-            </h2>
+            <h2>Take a closer look.</h2>
           </div>
 
           <p>
-            Replace these placeholders with the client's real business
-            photos.
+            Replace these placeholders with the dealership's real showroom
+            and vehicle photographs.
           </p>
         </div>
 
-        <div className="gallery">
-          {[
-            "PHOTO 01",
-            "PHOTO 02",
-            "PHOTO 03",
-            "PHOTO 04",
-            "PHOTO 05",
-            "PHOTO 06",
-          ].map((photo) => (
-            <div className="galleryItem" key={photo}>
-              {photo}
-            </div>
-          ))}
+        <div className="carGallery">
+          <div>SHOWROOM</div>
+          <div>VEHICLE 01</div>
+          <div>VEHICLE 02</div>
+          <div>VEHICLE 03</div>
+          <div>VEHICLE 04</div>
+          <div>DELIVERY</div>
         </div>
       </section>
 
       <section className="section testimonials">
         <p className="eyebrow">CUSTOMER REVIEWS</p>
 
-        <h2>
-          What our customers say.
-        </h2>
+        <h2>Drivers who chose us.</h2>
 
         <div className="testimonialGrid">
-          {testimonials.map((testimonial) => (
-            <figure key={testimonial.name}>
+          {reviews.map((review) => (
+            <figure key={review.name}>
               <blockquote>
-                “{testimonial.quote}”
+                “{review.quote}”
               </blockquote>
 
-              <figcaption>
-                {testimonial.name}
-              </figcaption>
+              <figcaption>{review.name}</figcaption>
             </figure>
           ))}
         </div>
@@ -242,21 +302,29 @@ export default function Home() {
 
       <section id="contact" className="contact section">
         <div>
-          <p className="eyebrow">GET IN TOUCH</p>
+          <p className="eyebrow">READY TO FIND YOUR CAR?</p>
 
-          <h2>
-            Ready to work with us?
-          </h2>
+          <h2>Let's find the right vehicle for you.</h2>
 
           <p>
-            Contact us today to ask a question, request a quote or book a
-            service.
+            Tell us the make, model, budget and type of vehicle you're looking
+            for. Our team will get back to you.
           </p>
+
+          <a className="button primary" href={whatsapp}>
+            Start a WhatsApp Enquiry
+          </a>
         </div>
 
         <div className="contactBox">
           <p>
             <strong>Phone</strong>
+            <br />
+            +233 00 000 0000
+          </p>
+
+          <p>
+            <strong>WhatsApp</strong>
             <br />
             +233 00 000 0000
           </p>
@@ -270,29 +338,25 @@ export default function Home() {
           <p>
             <strong>Opening Hours</strong>
             <br />
-            Monday – Saturday, 9:00 AM – 6:00 PM
+            Monday – Saturday, 8:00 AM – 6:00 PM
           </p>
-
-          <a className="button primary" href={whatsapp}>
-            Message on WhatsApp
-          </a>
         </div>
       </section>
 
       <footer>
         <div className="logo">
-          Luxe<span>Glow</span>
+          DRIVE<span>GH</span>
         </div>
 
         <p>
-          © 2026 LuxeGlow. Demo website template.
+          © 2026 DriveGH. Demo dealership website.
         </p>
       </footer>
 
       <a
         className="floating"
         href={whatsapp}
-        aria-label="Chat on WhatsApp"
+        aria-label="Chat with the dealership on WhatsApp"
       >
         WhatsApp
       </a>
