@@ -1,3 +1,4 @@
+```css
 :root {
   --ink: #111111;
   --muted: #686868;
@@ -95,8 +96,8 @@ a {
   min-height: 680px;
   position: relative;
   background:
-    linear-gradient(90deg, rgba(0, 0, 0, 0.82), rgba(0, 0, 0, 0.2)),
-    linear-gradient(145deg, #444, #111);
+    linear-gradient(90deg, rgba(0, 0, 0, 0.78), rgba(0, 0, 0, 0.18)),
+    url("/hero-car.jpg") center center / cover no-repeat;
   display: flex;
   align-items: center;
 }
@@ -500,3 +501,4 @@ footer {
     display: block;
   }
 }
+```
