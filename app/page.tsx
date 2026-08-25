@@ -1,3 +1,4 @@
+```tsx
 const vehicles = [
   {
     name: "2024 Toyota Land Cruiser",
@@ -54,8 +55,7 @@ const reviews = [
     name: "Daniel A.",
   },
   {
-    quote:
-      "Very helpful team and a great selection of vehicles.",
+    quote: "Very helpful team and a great selection of vehicles.",
     name: "Kwame B.",
   },
 ];
@@ -83,6 +83,14 @@ export default function Home() {
       </header>
 
       <section id="home" className="carHero">
+        <img
+          className="heroImage"
+          src="/hero-car.jpg"
+          alt="Premium vehicle"
+        />
+
+        <div className="heroImageOverlay"></div>
+
         <div className="heroOverlay">
           <div className="heroCopy">
             <p className="eyebrow">PREMIUM VEHICLES • TRUSTED SERVICE</p>
@@ -115,7 +123,6 @@ export default function Home() {
         <div className="sectionHead">
           <div>
             <p className="eyebrow">OUR VEHICLES</p>
-
             <h2>Featured cars.</h2>
           </div>
 
@@ -135,16 +142,12 @@ export default function Home() {
               <div className="vehicleInfo">
                 <h3>{vehicle.name}</h3>
 
-                <p className="vehicleDetails">
-                  {vehicle.details}
-                </p>
+                <p className="vehicleDetails">{vehicle.details}</p>
 
                 <div className="vehicleBottom">
                   <strong>{vehicle.price}</strong>
 
-                  <a href={whatsapp}>
-                    Enquire →
-                  </a>
+                  <a href={whatsapp}>Enquire →</a>
                 </div>
               </div>
             </article>
@@ -162,7 +165,6 @@ export default function Home() {
         <div className="sectionHead">
           <div>
             <p className="eyebrow">OUR SERVICES</p>
-
             <h2>More than just selling cars.</h2>
           </div>
 
@@ -191,9 +193,7 @@ export default function Home() {
         <div>
           <p className="eyebrow">ABOUT DRIVEGH</p>
 
-          <h2>
-            Your next car should feel like the right choice.
-          </h2>
+          <h2>Your next car should feel like the right choice.</h2>
         </div>
 
         <div>
@@ -218,9 +218,7 @@ export default function Home() {
         <div className="darkIntro">
           <p className="eyebrow">WHY BUY FROM US</p>
 
-          <h2>
-            A better way to buy your next vehicle.
-          </h2>
+          <h2>A better way to buy your next vehicle.</h2>
         </div>
 
         <div className="reasonGrid">
@@ -235,25 +233,19 @@ export default function Home() {
           <div>
             <b>02</b>
             <h3>Transparent Service</h3>
-            <p>
-              Clear communication throughout the buying process.
-            </p>
+            <p>Clear communication throughout the buying process.</p>
           </div>
 
           <div>
             <b>03</b>
             <h3>Easy Enquiries</h3>
-            <p>
-              Contact us directly through WhatsApp or phone.
-            </p>
+            <p>Contact us directly through WhatsApp or phone.</p>
           </div>
 
           <div>
             <b>04</b>
             <h3>Customer First</h3>
-            <p>
-              We want you to leave confident about your decision.
-            </p>
+            <p>We want you to leave confident about your decision.</p>
           </div>
         </div>
       </section>
@@ -262,7 +254,6 @@ export default function Home() {
         <div className="sectionHead">
           <div>
             <p className="eyebrow">DEALERSHIP GALLERY</p>
-
             <h2>Take a closer look.</h2>
           </div>
 
@@ -290,10 +281,7 @@ export default function Home() {
         <div className="testimonialGrid">
           {reviews.map((review) => (
             <figure key={review.name}>
-              <blockquote>
-                “{review.quote}”
-              </blockquote>
-
+              <blockquote>“{review.quote}”</blockquote>
               <figcaption>{review.name}</figcaption>
             </figure>
           ))}
@@ -348,9 +336,7 @@ export default function Home() {
           DRIVE<span>GH</span>
         </div>
 
-        <p>
-          © 2026 DriveGH. Demo dealership website.
-        </p>
+        <p>© 2026 DriveGH. Demo dealership website.</p>
       </footer>
 
       <a
@@ -363,3 +349,4 @@ export default function Home() {
     </main>
   );
 }
+```
